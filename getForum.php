@@ -10,7 +10,7 @@
 	   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	//sql寫mysql指令
-	$sql = "select 學生姓名,就讀學校,技能編號,收藏清單,學生的臉 from 學生帳號";
+	$sql = "select 學生編號,民宿編號,發文時間,按讚數,心得文字,心得圖片 from 心得";
 
 	$res = mysqli_query($con,$sql)or die("Error in Selecting " . mysqli_error($con));;
 	$result = array();
@@ -23,7 +23,8 @@
 		'row2'=>$row[1],
 		'row3'=>$row[2],
 		'row4'=>$row[3],
-		'row5'=>$row[4]
+		'row5'=>$row[4],
+		'row6'=>$row[5]
 		));
 	}
 
