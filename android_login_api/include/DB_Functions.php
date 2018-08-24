@@ -26,10 +26,11 @@ class DB_Functions {
      * Storing new user
      * returns user details
      */
-    public function storeUser($email, $name) {
+    public function storeUser($accountID, $password, $realname, $phone) {
 
-        $stmt = $this->conn->prepare("INSERT INTO 民宿主帳號(民宿主帳號, 民宿主姓名) VALUES(?, ?)");
-        $stmt->bind_param($email, $name);
+        $stmt = $this->conn->prepare("INSERT INTO INSERT INTO `民宿主帳號` (`id`, `accountID`, `password`, `realname`, `phone`)
+        VALUES (NULL, ?, ?, ?, ?)");
+        $stmt->bind_param("sss", $accountID, $password, $realname, $phone);
         $result = $stmt->execute();
         $stmt->close();
 
@@ -50,9 +51,9 @@ class DB_Functions {
     /**
      * Get user by email and password
      */
-    public function getUserByEmailAndPassword($email, $password) {
+    public function getUserByAccountAndPassword($accountID, $password) {
 
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE accountID = ?");
 
         $stmt->bind_param("s", $email);
 
