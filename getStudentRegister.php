@@ -10,7 +10,7 @@
 	   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	//sql寫mysql指令
-	$sql = "select 民宿資訊.民宿名稱,CONCAT(民宿資訊.民宿地址市, 民宿資訊.民宿地址區, 民宿資訊.民宿地址路), 民宿資訊.民宿電話 ,民宿資訊.民宿圖片, 民宿資訊.民宿電話 , DATEDIFF( 職缺.結束日期 , 職缺.開始日期 ), 職缺.需求人數 from 民宿資訊 INNER JOIN 職缺 ON 民宿資訊.民宿編號 = 職缺.民宿編號";
+	$sql = "select 學生帳號,學生密碼,學生姓名,學生手機 from 學生帳號";
 
 	$res = mysqli_query($con,$sql)or die("Error in Selecting " . mysqli_error($con));;
 	$result = array();
@@ -23,9 +23,6 @@
 		'row2'=>$row[1],
 		'row3'=>$row[2],
 		'row4'=>$row[3],
-		'row5'=>$row[4],
-		'row6'=>$row[5],
-		'row7'=>$row[6]
 		));
 	}
 
