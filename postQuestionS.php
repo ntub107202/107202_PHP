@@ -11,9 +11,9 @@
 	}
 	//$_POST[row1] android傳進來的值 row1是傳進來的參數名稱
 
-	$sql="INSERT INTO 民宿資訊 (民宿名稱, 民宿地址市, 民宿地址區, 民宿地址路, 民宿電話, 民宿資訊, 民宿執照, 民宿圖片, 民宿主帳號,LINEID,youtube連結)
+	$sql="INSERT INTO 問題回報學生 (學生帳號, 回報內容)
 	VALUES
-	('$_POST[row1]','$_POST[row2]','$_POST[row3]','$_POST[row4]','$_POST[row5]','$_POST[row6]','$_POST[row7]','$_POST[row8]','$_POST[row9]','$_POST[row10]','$_POST[row11]')";
+	('$_POST[row1]','$_POST[row2]')";
 
 
 	$res = mysqli_query($con,$sql)or die("Error in Selecting " . mysqli_error($con));

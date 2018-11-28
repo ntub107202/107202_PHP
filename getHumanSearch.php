@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	//建立連線
 	$con=mysqli_connect("localhost","root","860319","we")or die("Error " . mysqli_error($con));
@@ -12,7 +12,7 @@
 	//sql寫mysql指令
 	$sql = "select 學生姓名,就讀學校,工作經驗,換宿原因,學生的臉,性別, 生日, 學生手機,
 	CONCAT(居住地市名, 居住地區名, 居住地路名), 電子信箱, 生活照, 就學狀態,興趣, 飲食習慣,
-	換宿起始日, 換宿結束日, 收藏清單, 就讀科系, 庭園整理 from 學生帳號";
+	換宿起始日, 換宿結束日, 收藏清單, 就讀科系, 庭園整理, 學生帳號, 學生LineID, youtube連結 from 學生帳號";
 
 	$res = mysqli_query($con,$sql)or die("Error in Selecting " . mysqli_error($con));;
 	$result = array();
@@ -39,7 +39,10 @@
 		'endingDate'=>$row[15],
 		'collectionList'=>$row[16],
 		'department'=>$row[17],
-		'gardening'=>$row[18]
+		'gardening'=>$row[18],
+		'studentAccount'=>$row[19],
+		'lineId'=>$row[20],
+		'url'=>$row[21]
 		));
 	}
 

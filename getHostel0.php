@@ -14,10 +14,8 @@
 	 , 民宿資訊.民宿圖片, 職缺.職缺名稱 , 職缺.薪水, 職缺.開始日期, 職缺.結束日期, 職缺.開始時間
 	 , 職缺.結束時間, 職缺.需求人數, 職缺.工作內容, 民宿主帳號.民宿主姓名, 民宿主帳號.民宿主帳號,
 	 民宿主帳號.民宿主電話, datediff(職缺.結束日期,職缺.開始日期), 民宿資訊.評價, 民宿資訊.民宿編號, 民宿資訊.LINEID
-	 ,  民宿資訊.民宿圖片2, 民宿資訊.民宿圖片3, 民宿資訊.民宿圖片4, 民宿資訊.民宿圖片5 , 民宿資訊.youtube連結
 	  from (( 民宿資訊 INNER JOIN 職缺 ON 民宿資訊.民宿編號 = 職缺.民宿編號) INNER JOIN 民宿主帳號 ON
 		民宿資訊.民宿主帳號 = 民宿主帳號.民宿主帳號)";
-
 
 	$res = mysqli_query($con,$sql)or die("Error in Selecting " . mysqli_error($con));;
 	$result = array();
@@ -44,11 +42,6 @@
 		'hostelRate'=>$row[15],
 		'hostelNum'=>$row[16],
 		'lineId'=>$row[17],
-		'hostelPhoto2'=>$row[18],
-		'hostelPhoto3'=>$row[19],
-		'hostelPhoto4'=>$row[20],
-		'hostelPhoto5'=>$row[21],
-		'url'=>$row[22]
 		));
 	}
 
